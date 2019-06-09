@@ -9,7 +9,6 @@ public class Conec {
             
         Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Wattan","postgres" ,"postgres");
-        JOptionPane.showMessageDialog(null, "Conectado");
         return con;
         }
         

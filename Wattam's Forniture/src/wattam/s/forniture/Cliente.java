@@ -1,11 +1,13 @@
 package wattam.s.forniture;
 
+
 public class Cliente extends Pessoa {
     private String email;
     private int telefone;
     private Endereco endereco;
+    
 
-    public Cliente(String email, int telefone, String nome, String cpf, String rua, String numero, String bairro, String cidade) {
+    public Cliente(String email, int telefone, String nome, String cpf, String rua, int numero, String bairro, String cidade) {
         super(nome, cpf);
         this.email = email;
         this.telefone = telefone;

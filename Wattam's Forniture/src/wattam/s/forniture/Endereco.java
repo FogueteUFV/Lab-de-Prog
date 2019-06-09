@@ -2,11 +2,11 @@ package wattam.s.forniture;
 
 public class Endereco {
     private String rua;
-    private String numero;
+    private int numero;
     private String bairro;
     private String cidade;
 
-    public Endereco(String rua, String numero, String bairro, String cidade) {
+    public Endereco(String rua, int numero, String bairro, String cidade) {
         this.rua = rua;
         this.numero = numero;
         this.bairro = bairro;
@@ -21,11 +21,11 @@ public class Endereco {
         this.rua = rua;
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
