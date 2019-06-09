@@ -109,7 +109,12 @@ public class Inicial extends javax.swing.JFrame {
             pst.setString(2, Senha.getText());
             rs = pst.executeQuery();
             if(rs.next()){
-                PaginaInicial p = new PaginaInicial();
+                PaginaInicial p = null;
+                try {
+                    p = new PaginaInicial();
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(Inicial.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 p.setVisible(true);
                 dispose();
             }else{
