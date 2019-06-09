@@ -6,7 +6,8 @@ import java.sql.*;
 public class Conec {
     public static Connection Conectar() throws ClassNotFoundException{
         try{
-        Class.forName("org.postgres.Driver");
+            
+        Class.forName("org.postgresql.Driver");
         Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Wattan","postgres" ,"postgres");
         JOptionPane.showMessageDialog(null, "Conectado");
         return con;

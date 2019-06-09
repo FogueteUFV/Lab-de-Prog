@@ -27,21 +27,126 @@ public class PaginaInicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        Funcionario = new javax.swing.JMenu();
+        CadFunc = new javax.swing.JMenuItem();
+        ExFunc = new javax.swing.JMenuItem();
+        AttFunc = new javax.swing.JMenuItem();
+        Cliente = new javax.swing.JMenu();
+        CadCliente = new javax.swing.JMenuItem();
+        ExCliente = new javax.swing.JMenuItem();
+        AttCliente = new javax.swing.JMenuItem();
+        Produto = new javax.swing.JMenu();
+        AddProduto = new javax.swing.JMenuItem();
+        ExProduto = new javax.swing.JMenuItem();
+        AttProduto = new javax.swing.JMenuItem();
+        Venda = new javax.swing.JMenu();
+        Vender = new javax.swing.JMenuItem();
+
+        jButton2.setText("jButton2");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Pristina", 1, 50)); // NOI18N
+        jLabel1.setText("Watta's Magazine");
+
+        Funcionario.setText("Funcionario");
+
+        CadFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/add.png"))); // NOI18N
+        CadFunc.setText("Cadastrar ");
+        Funcionario.add(CadFunc);
+
+        ExFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/cancel.png"))); // NOI18N
+        ExFunc.setText("Excluir");
+        Funcionario.add(ExFunc);
+
+        AttFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/arrow_rotate_anticlockwise.png"))); // NOI18N
+        AttFunc.setText("Atualizar");
+        Funcionario.add(AttFunc);
+
+        jMenuBar1.add(Funcionario);
+
+        Cliente.setText("Cliente");
+
+        CadCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/user_add.png"))); // NOI18N
+        CadCliente.setText("Cadastrar");
+        CadCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadClienteActionPerformed(evt);
+            }
+        });
+        Cliente.add(CadCliente);
+
+        ExCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/user_delete.png"))); // NOI18N
+        ExCliente.setText("Excluir");
+        Cliente.add(ExCliente);
+
+        AttCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/user_edit.png"))); // NOI18N
+        AttCliente.setText("Modificar");
+        AttCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttClienteActionPerformed(evt);
+            }
+        });
+        Cliente.add(AttCliente);
+
+        jMenuBar1.add(Cliente);
+
+        Produto.setText("Produto");
+
+        AddProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/tag_blue_add.png"))); // NOI18N
+        AddProduto.setText("Adicionar");
+        Produto.add(AddProduto);
+
+        ExProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/tag_blue_delete.png"))); // NOI18N
+        ExProduto.setText("Remover");
+        Produto.add(ExProduto);
+
+        AttProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/tag_blue_edit.png"))); // NOI18N
+        AttProduto.setText("Alterar");
+        Produto.add(AttProduto);
+
+        jMenuBar1.add(Produto);
+
+        Venda.setText("Venda");
+
+        Vender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/cart_add.png"))); // NOI18N
+        Vender.setText("Realizar Venda");
+        Venda.add(Vender);
+
+        jMenuBar1.add(Venda);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel1)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(jLabel1)
+                .addContainerGap(137, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AttClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AttClienteActionPerformed
+
+    private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CadClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +184,22 @@ public class PaginaInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AddProduto;
+    private javax.swing.JMenuItem AttCliente;
+    private javax.swing.JMenuItem AttFunc;
+    private javax.swing.JMenuItem AttProduto;
+    private javax.swing.JMenuItem CadCliente;
+    private javax.swing.JMenuItem CadFunc;
+    private javax.swing.JMenu Cliente;
+    private javax.swing.JMenuItem ExCliente;
+    private javax.swing.JMenuItem ExFunc;
+    private javax.swing.JMenuItem ExProduto;
+    private javax.swing.JMenu Funcionario;
+    private javax.swing.JMenu Produto;
+    private javax.swing.JMenu Venda;
+    private javax.swing.JMenuItem Vender;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
