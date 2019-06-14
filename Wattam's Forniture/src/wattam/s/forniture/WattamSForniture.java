@@ -1,4 +1,5 @@
-package Interface;
+package wattam.s.forniture;
+
 import java.sql.Statement;
 import java.util.Scanner;
 import java.sql.*;
@@ -20,7 +21,7 @@ public class WattamSForniture{
         //Instanciando Cliente
         System.out.println("Digite, em sequência, o email do cliente, telefone, nome, cpf, rua, numero, bairro e a cidade.");
         
-        Cliente c = new Cliente(scn.nextLine(), scn.nextInt(), scn.nextLine(), scn.nextLine(), scn.nextLine(), scn.nextLine(), scn.nextLine(), scn.nextLine());
+        Cliente c = new Cliente(scn.nextLine(), scn.nextInt(), scn.nextLine(), scn.nextLine(), scn.nextLine(), scn.nextInt(), scn.nextLine(), scn.nextLine());
         
         System.out.println("\n"+c.toString());
         

@@ -10,7 +10,7 @@ public class ClienteInter extends javax.swing.JFrame {
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    Cliente c;
+    Cliente c = new Cliente("", "");
 
     public ClienteInter() throws ClassNotFoundException {
         initComponents();
@@ -24,6 +24,7 @@ public class ClienteInter extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         Nome = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -35,7 +36,9 @@ public class ClienteInter extends javax.swing.JFrame {
         CPF = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jFormattedTextField1.setText("jFormattedTextField1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Nome");
 
@@ -132,15 +135,18 @@ public class ClienteInter extends javax.swing.JFrame {
     private void CadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadastrarClienteActionPerformed
         String sql = "INSERT INTO cliente (cCpf,CNome,Rua,Bairro,Cidade,Numero,Telefone,Email) VALUES (?, ?, ? ,? , ? , ?, ? , ?)";
         String cp = "    .    .    -   ";
+        String t;
         try {
             pst = con.prepareStatement(sql);
-            //c.setNome(Nome.getText());
-            //c.setCpf(CPF.getText());
-            //c.setTelefone(Integer.parseInt(Telefone.getText()));
-            //c.setEmail(Email.getText());
-            
-            pst.setString(1,CPF.getText());
-            pst.setString(2,Nome.getText());
+        
+            c.setNome(Nome.getText());
+            c.setCpf(CPF.getText());
+            c.setTelefone(Integer.parseInt(Telefone.getText()));
+            c.setEmail(Email.getText());
+          
+       
+            pst.setString(1,c.getCpf());
+            pst.setString(2,c.getNome());
             pst.setString(3,"rua"/*c.getEndereco().getRua()*/);
             pst.setString(4,"bairro"/*c.getEndereco().getBairro()*/);
             pst.setString(5,"cidade"/* c.getEndereco().getCidade()*/);
@@ -201,6 +207,7 @@ public class ClienteInter extends javax.swing.JFrame {
     private javax.swing.JTextField Email;
     private javax.swing.JTextField Nome;
     private javax.swing.JTextField Telefone;
+    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

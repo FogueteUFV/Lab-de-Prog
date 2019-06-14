@@ -44,7 +44,7 @@ public class CadastrarProduto extends javax.swing.JFrame {
 
         jTextField6.setText("jTextField6");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Codigo");
 
@@ -177,6 +177,12 @@ public class CadastrarProduto extends javax.swing.JFrame {
            pst.execute();
            dispose();
            JOptionPane.showMessageDialog(null, "Produto Cadastrado com sucesso");
+           
+           if (Codigo.getText().isEmpty() || Cor.getText().isEmpty() || Design.getText().isEmpty() || Material.getText().isEmpty() || Nome.getText().isEmpty() || Preco.getText().isEmpty() || Quantidade.getText().isEmpty()) {
+               JOptionPane.showMessageDialog(null, "Há campos vazios, preencha-os por favor");
+           }else{
+               JOptionPane.showMessageDialog(null,"Cadastrado com Sucesso" );
+           }
        } catch (SQLException ex) {
            Logger.getLogger(CadastrarProduto.class.getName()).log(Level.SEVERE, null, ex);
        }

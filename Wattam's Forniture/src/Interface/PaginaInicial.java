@@ -115,6 +115,11 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         AddProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/basket_add.png"))); // NOI18N
         AddProduto.setText("Adicionar");
+        AddProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddProdutoActionPerformed(evt);
+            }
+        });
         Produto.add(AddProduto);
 
         ExProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/basket_delete.png"))); // NOI18N
@@ -133,9 +138,19 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         Venda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/cart.png"))); // NOI18N
         Venda.setText("Venda");
+        Venda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VendaActionPerformed(evt);
+            }
+        });
 
         Vender.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/cart_add.png"))); // NOI18N
         Vender.setText("Realizar Venda");
+        Vender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VenderActionPerformed(evt);
+            }
+        });
         Venda.add(Vender);
 
         jMenuBar1.add(Venda);
@@ -207,6 +222,39 @@ public class PaginaInicial extends javax.swing.JFrame {
         }
         cF.setVisible(true);
     }//GEN-LAST:event_CadFuncActionPerformed
+
+    private void VendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VendaActionPerformed
+        InterVenda vd = null;
+        
+        try {
+            vd = new InterVenda();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        vd.setVisible(true);
+    }//GEN-LAST:event_VendaActionPerformed
+
+    private void AddProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddProdutoActionPerformed
+        CadastrarProduto cdp = null;
+        try {
+            cdp = new CadastrarProduto();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cdp.setVisible(true);
+    }//GEN-LAST:event_AddProdutoActionPerformed
+
+    private void VenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VenderActionPerformed
+        InterVenda vd = null;
+        
+        try {
+            vd = new InterVenda();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        vd.setVisible(true);                               
+
+    }//GEN-LAST:event_VenderActionPerformed
 
     /**
      * @param args the command line arguments

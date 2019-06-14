@@ -6,13 +6,18 @@ public class Cliente extends Pessoa {
     private int telefone;
     private Endereco endereco;
     
-
+    public Cliente(String nome, String cpf) {
+        super(nome, cpf);
+    }
+    
     public Cliente(String email, int telefone, String nome, String cpf, String rua, int numero, String bairro, String cidade) {
         super(nome, cpf);
         this.email = email;
         this.telefone = telefone;
         this.endereco = new Endereco(rua, numero, bairro, cidade);
     }
+
+
 
     public String getEmail() {
         return email;
