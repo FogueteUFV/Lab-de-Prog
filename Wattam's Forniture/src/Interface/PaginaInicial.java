@@ -35,12 +35,12 @@ public class PaginaInicial extends javax.swing.JFrame {
         CadCliente = new javax.swing.JMenuItem();
         ExCliente = new javax.swing.JMenuItem();
         AttCliente = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        PesquisarC = new javax.swing.JMenuItem();
         Produto = new javax.swing.JMenu();
         AddProduto = new javax.swing.JMenuItem();
         ExProduto = new javax.swing.JMenuItem();
         AttProduto = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        ProcurarProduto = new javax.swing.JMenuItem();
         Venda = new javax.swing.JMenu();
         Vender = new javax.swing.JMenuItem();
 
@@ -104,9 +104,14 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
         Cliente.add(AttCliente);
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_user.png"))); // NOI18N
-        jMenuItem1.setText("Pesquisar");
-        Cliente.add(jMenuItem1);
+        PesquisarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_user.png"))); // NOI18N
+        PesquisarC.setText("Pesquisar");
+        PesquisarC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PesquisarCActionPerformed(evt);
+            }
+        });
+        Cliente.add(PesquisarC);
 
         jMenuBar1.add(Cliente);
 
@@ -128,11 +133,21 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         AttProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/basket_edit.png"))); // NOI18N
         AttProduto.setText("Alterar");
+        AttProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AttProdutoActionPerformed(evt);
+            }
+        });
         Produto.add(AttProduto);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_explore.png"))); // NOI18N
-        jMenuItem2.setText("Procurar");
-        Produto.add(jMenuItem2);
+        ProcurarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_explore.png"))); // NOI18N
+        ProcurarProduto.setText("Procurar");
+        ProcurarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProcurarProdutoActionPerformed(evt);
+            }
+        });
+        Produto.add(ProcurarProduto);
 
         jMenuBar1.add(Produto);
 
@@ -178,7 +193,11 @@ public class PaginaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AttClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttClienteActionPerformed
-        // TODO add your handling code here:
+        ModificarCliente mdc = null;
+
+        mdc = new ModificarCliente();
+        mdc.setVisible(true);
+        
     }//GEN-LAST:event_AttClienteActionPerformed
 
     private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
@@ -256,6 +275,26 @@ public class PaginaInicial extends javax.swing.JFrame {
 
     }//GEN-LAST:event_VenderActionPerformed
 
+    private void PesquisarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCActionPerformed
+        PesquisaCliente pc = null;
+        pc = new PesquisaCliente();
+        pc.setVisible(true);                               
+
+       
+    }//GEN-LAST:event_PesquisarCActionPerformed
+
+    private void AttProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttProdutoActionPerformed
+        EditarProduto ep = null;
+        ep = new EditarProduto();
+        ep.setVisible(true);
+    }//GEN-LAST:event_AttProdutoActionPerformed
+
+    private void ProcurarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarProdutoActionPerformed
+        PesquisarProduto pp = null;
+        pp = new PesquisarProduto();
+        pp.setVisible(true);
+    }//GEN-LAST:event_ProcurarProdutoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -306,13 +345,13 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem ExFunc;
     private javax.swing.JMenuItem ExProduto;
     private javax.swing.JMenu Funcionario;
+    private javax.swing.JMenuItem PesquisarC;
+    private javax.swing.JMenuItem ProcurarProduto;
     private javax.swing.JMenu Produto;
     private javax.swing.JMenu Venda;
     private javax.swing.JMenuItem Vender;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }

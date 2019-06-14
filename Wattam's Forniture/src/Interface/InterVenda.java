@@ -78,7 +78,7 @@ public class InterVenda extends javax.swing.JFrame {
         jLabel3.setText("Data");
 
         try {
-            Data.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####/##/##")));
+            Data.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("####-##-##")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
@@ -197,28 +197,35 @@ public class InterVenda extends javax.swing.JFrame {
     }//GEN-LAST:event_QuantidadeActionPerformed
 
     private void ConfirmaCmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmaCmActionPerformed
-        String sql = "INSERT INTO venda (idVenda, Funcionario_cpf,Cliente_cCpf,dara_2,Valor,enderecoEntrega)VALUES (?, ?,?, ?, ?, ?)";
-        String sql1 = "INSERT INTO venda_nota(Quantidade,Venda_idVenda,Produto_idProduto) VALUES (?,?,?)";
-        String sql2 = "select QuantidadeEmEstoque from produto where idProduto = ?";
+        //String sql = "INSERT INTO venda (idVenda, Funcionario_cpf,Cliente_cCpf,dara_2,Valor,enderecoEntrega)VALUES (?, ?,?, ?, ?, ?)";
+        //String sql1 = "INSERT INTO venda_nota(Quantidade,Venda_idVenda,Produto_idProduto) VALUES (?,?,?)";
+        //SString sql2 = "select QuantidadeEmEstoque from produto where idProduto = ?";
         String cp = "   .    .    -   ";
         try {
-            pst = con.prepareStatement(sql);
-            pst1 = con.prepareStatement(sql1);
-            pst2 = con.prepareStatement(sql2);
-            rs = pst2.executeQuery();
-            p.setQuantidadeEmEstoque(rs.getInt("QuantidadeEmEstoque"));
-            if (Integer.parseInt(Quantidade.getText())<=p.getQuantidadeEmEstoque()) {
+            pst = con.prepareStatement("select QuantidadeEmEstoque from produto where idProduto = ?");
+            pst.setInt(1, Integer.parseInt(IdProduto.getText()));
+            rs = pst.executeQuery();
+            rs.next();
+            //p.setQuantidadeEmEstoque(rs.getInt(1));
+            
+            
+            if (Integer.parseInt(Quantidade.getText())<=rs.getInt(1)) {
+               pst = con.prepareStatement("INSERT INTO venda (idVenda, Funcionario_cpf,Cliente_cCpf,Valor,enderecoEntrega)VALUES (?, ?,?, ?, ?)");
                pst.setInt(1,Integer.parseInt(IdVenda.getText()));
                pst.setString(2,CpfFunc.getText());
                pst.setString(3, CpfCliente.getText());
-               pst.setDate(4, Date.valueOf(Data.getText()));
-               pst.setFloat(5, Float.parseFloat(ValorCm.getText()));
-               pst.setString(6, End.getText());
-               pst1.setInt(1,Integer.parseInt(Quantidade.getText()));
-               pst1.setInt(2,Integer.parseInt(IdVenda.getText()));
-               pst1.setInt(3, Integer.parseInt(IdProduto.getText()));
+               //pst.setDate(4, Date.valueOf(Data.getText()));
+               pst.setFloat(4, Float.parseFloat(ValorCm.getText()));
+               pst.setString(5, End.getText());
                pst.execute();
-               pst1.execute();
+               
+               pst = con.prepareStatement("INSERT INTO venda_nota(Quantidade,Venda_idVenda,Produto_idProduto) VALUES (?,?,?)");
+               pst.setInt(1,Integer.parseInt(Quantidade.getText()));
+               pst.setInt(2,Integer.parseInt(IdVenda.getText()));
+               pst.setInt(3, Integer.parseInt(IdProduto.getText()));
+           
+               pst.execute();
+               JOptionPane.showMessageDialog(null, "Venda Concluida");
                
                 if (cp.equals(CpfCliente.getText()) && cp.equals(CpfFunc.getText())) {
                     JOptionPane.showMessageDialog(null, "Campo cpf vazio, por favor preencha-o");
