@@ -40,6 +40,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         AddProduto = new javax.swing.JMenuItem();
         ExProduto = new javax.swing.JMenuItem();
         AttProduto = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         Venda = new javax.swing.JMenu();
         Vender = new javax.swing.JMenuItem();
 
@@ -48,13 +49,18 @@ public class PaginaInicial extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Pristina", 1, 50)); // NOI18N
-        jLabel1.setText("Watta's Magazine");
+        jLabel1.setText("Wattam's Magazine");
 
         Funcionario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/group.png"))); // NOI18N
         Funcionario.setText("Funcionario");
 
         CadFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/group_add.png"))); // NOI18N
         CadFunc.setText("Cadastrar ");
+        CadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CadFuncActionPerformed(evt);
+            }
+        });
         Funcionario.add(CadFunc);
 
         ExFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/group_delete.png"))); // NOI18N
@@ -98,6 +104,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
         Cliente.add(AttCliente);
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_user.png"))); // NOI18N
         jMenuItem1.setText("Pesquisar");
         Cliente.add(jMenuItem1);
 
@@ -118,6 +125,10 @@ public class PaginaInicial extends javax.swing.JFrame {
         AttProduto.setText("Alterar");
         Produto.add(AttProduto);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_explore.png"))); // NOI18N
+        jMenuItem2.setText("Procurar");
+        Produto.add(jMenuItem2);
+
         jMenuBar1.add(Produto);
 
         Venda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/cart.png"))); // NOI18N
@@ -136,9 +147,9 @@ public class PaginaInicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel1)
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,6 +197,16 @@ public class PaginaInicial extends javax.swing.JFrame {
         exf.setVisible(true);
         
     }//GEN-LAST:event_ExFuncActionPerformed
+
+    private void CadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadFuncActionPerformed
+        CadastrarFuncionario cF = null;
+        try {
+            cF = new CadastrarFuncionario();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cF.setVisible(true);
+    }//GEN-LAST:event_CadFuncActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,5 +265,6 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
