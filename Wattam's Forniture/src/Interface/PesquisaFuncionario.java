@@ -210,7 +210,11 @@ public class PesquisaFuncionario extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PesquisaFuncionario().setVisible(true);
+                try {
+                    new PesquisaFuncionario().setVisible(true);
+                } catch (ClassNotFoundException ex) {
+                    Logger.getLogger(PesquisaFuncionario.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
