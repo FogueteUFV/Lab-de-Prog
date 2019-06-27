@@ -193,17 +193,13 @@ public class PaginaInicial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AttClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttClienteActionPerformed
-        ModificarCliente mdc = null;
 
-        mdc = new ModificarCliente();
-        mdc.setVisible(true);
-        
     }//GEN-LAST:event_AttClienteActionPerformed
 
     private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
-       ClienteInter cl = null;
+       CadastrarCliente cl = null;
         try {
-            cl = new ClienteInter();
+            cl = new CadastrarCliente();
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -277,16 +273,18 @@ public class PaginaInicial extends javax.swing.JFrame {
 
     private void PesquisarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PesquisarCActionPerformed
         PesquisaCliente pc = null;
-        pc = new PesquisaCliente();
+        try {
+            pc = new PesquisaCliente();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
         pc.setVisible(true);                               
 
        
     }//GEN-LAST:event_PesquisarCActionPerformed
 
     private void AttProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttProdutoActionPerformed
-        EditarProduto ep = null;
-        ep = new EditarProduto();
-        ep.setVisible(true);
+   
     }//GEN-LAST:event_AttProdutoActionPerformed
 
     private void ProcurarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarProdutoActionPerformed
