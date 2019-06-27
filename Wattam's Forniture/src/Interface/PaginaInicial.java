@@ -26,25 +26,34 @@ public class PaginaInicial extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Funcionario = new javax.swing.JMenu();
         CadFunc = new javax.swing.JMenuItem();
         ExFunc = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         Cliente = new javax.swing.JMenu();
         CadCliente = new javax.swing.JMenuItem();
         ExCliente = new javax.swing.JMenuItem();
-        AttCliente = new javax.swing.JMenuItem();
         PesquisarC = new javax.swing.JMenuItem();
         Produto = new javax.swing.JMenu();
         AddProduto = new javax.swing.JMenuItem();
         ExProduto = new javax.swing.JMenuItem();
-        AttProduto = new javax.swing.JMenuItem();
         ProcurarProduto = new javax.swing.JMenuItem();
         Venda = new javax.swing.JMenu();
         Vender = new javax.swing.JMenuItem();
 
         jButton2.setText("jButton2");
+
+        jMenu1.setText("jMenu1");
+
+        jMenu2.setText("jMenu2");
+
+        jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +81,24 @@ public class PaginaInicial extends javax.swing.JFrame {
         });
         Funcionario.add(ExFunc);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/magnifier.png"))); // NOI18N
+        jMenuItem2.setText("Pesquisar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        Funcionario.add(jMenuItem2);
+
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/application_delete.png"))); // NOI18N
+        jMenuItem1.setText("Logout");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        Funcionario.add(jMenuItem1);
+
         jMenuBar1.add(Funcionario);
 
         Cliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/user.png"))); // NOI18N
@@ -94,15 +121,6 @@ public class PaginaInicial extends javax.swing.JFrame {
             }
         });
         Cliente.add(ExCliente);
-
-        AttCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/user_edit.png"))); // NOI18N
-        AttCliente.setText("Modificar");
-        AttCliente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AttClienteActionPerformed(evt);
-            }
-        });
-        Cliente.add(AttCliente);
 
         PesquisarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_user.png"))); // NOI18N
         PesquisarC.setText("Pesquisar");
@@ -130,15 +148,6 @@ public class PaginaInicial extends javax.swing.JFrame {
         ExProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/basket_delete.png"))); // NOI18N
         ExProduto.setText("Remover");
         Produto.add(ExProduto);
-
-        AttProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/basket_edit.png"))); // NOI18N
-        AttProduto.setText("Alterar");
-        AttProduto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AttProdutoActionPerformed(evt);
-            }
-        });
-        Produto.add(AttProduto);
 
         ProcurarProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/Icones/folder_explore.png"))); // NOI18N
         ProcurarProduto.setText("Procurar");
@@ -191,10 +200,6 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AttClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttClienteActionPerformed
-
-    }//GEN-LAST:event_AttClienteActionPerformed
 
     private void CadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CadClienteActionPerformed
        CadastrarCliente cl = null;
@@ -283,15 +288,31 @@ public class PaginaInicial extends javax.swing.JFrame {
        
     }//GEN-LAST:event_PesquisarCActionPerformed
 
-    private void AttProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AttProdutoActionPerformed
-   
-    }//GEN-LAST:event_AttProdutoActionPerformed
-
     private void ProcurarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProcurarProdutoActionPerformed
         PesquisarProduto pp = null;
-        pp = new PesquisarProduto();
+        try {
+            pp = new PesquisarProduto();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
         pp.setVisible(true);
     }//GEN-LAST:event_ProcurarProdutoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+       dispose();
+        Inicial l = new Inicial();
+        l.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        PesquisaFuncionario pf = null;
+        try {
+            pf = new PesquisaFuncionario();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(PaginaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        pf.setVisible(true);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -334,8 +355,6 @@ public class PaginaInicial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AddProduto;
-    private javax.swing.JMenuItem AttCliente;
-    private javax.swing.JMenuItem AttProduto;
     private javax.swing.JMenuItem CadCliente;
     private javax.swing.JMenuItem CadFunc;
     private javax.swing.JMenu Cliente;
@@ -350,6 +369,11 @@ public class PaginaInicial extends javax.swing.JFrame {
     private javax.swing.JMenuItem Vender;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     // End of variables declaration//GEN-END:variables
 }
